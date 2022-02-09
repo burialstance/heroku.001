@@ -1,5 +1,5 @@
 import random
-
+import aiohttp
 from fastapi import FastAPI, Request, Form
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
@@ -32,3 +32,16 @@ async def search(request: Request, query: str):
         'query': query
     }
     return templates.TemplateResponse('index.html', context)
+
+
+
+@app.get('/ip')
+async def fetch_ip(request: Request, host: str):
+    async with aiohttp.ClientSession() as client:
+        async with client.get("http://{ip}") as response:
+            status_code = response.status
+    context = {
+        'request': request,
+        **dir(response)
+    }
+    return context
