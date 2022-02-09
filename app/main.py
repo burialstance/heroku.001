@@ -25,7 +25,7 @@ async def read_item(request: Request):
 
 @app.get('/search', response_class=HTMLResponse)
 async def search(request: Request, query: str):
-    items = list(query)
+    items = [f"{i} {query}" for i in range(20)]
     context = {
         'request': request,
         'items': items,
