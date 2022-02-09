@@ -37,12 +37,13 @@ async def get(url):
     async with aiohttp.ClientSession() as client:
         async with client.get("http://{host}") as response:
             status_code = response.status
-            return status_code
+            return dict(code=status_code)
 
 @app.get('/ip/{host}')
 async def fetch_ip(request: Request, host: str):
-    #context = {
-    #    'request': request,
-    #    "status_code": status_code,
-    #}
-    return host
+    r = await get(f"http://{host}")
+    context = {
+        **r,
+        
+    }
+    return context
