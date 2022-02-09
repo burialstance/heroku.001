@@ -33,16 +33,16 @@ async def search(request: Request, query: str):
     }
     return templates.TemplateResponse('index.html', context)
 
-
-
-@app.get('/ip/{host}')
-async def fetch_ip(request: Request, host: str):
+async def get(url):
     async with aiohttp.ClientSession() as client:
         async with client.get("http://{host}") as response:
             status_code = response.status
+            return status_code
 
-    context = {
-        'request': request,
-        "status_code": status_code,
-    }
-    return context
+@app.get('/ip/{host}')
+async def fetch_ip(request: Request, host: str):
+    #context = {
+    #    'request': request,
+    #    "status_code": status_code,
+    #}
+    return host
