@@ -35,11 +35,12 @@ async def search(request: Request, query: str):
 
 
 
-@app.get('/ip')
+@app.get('/ip/{host}')
 async def fetch_ip(request: Request, host: str):
     async with aiohttp.ClientSession() as client:
         async with client.get("http://{ip}") as response:
             status_code = response.status
+
     context = {
         'request': request,
         **dir(response)
