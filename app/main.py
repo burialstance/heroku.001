@@ -43,6 +43,6 @@ async def fetch_ip(request: Request, host: str):
 
     context = {
         'request': request,
-        **dir(response)
+        "status_code": status_code,
     }
     return context
