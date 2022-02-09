@@ -35,7 +35,7 @@ async def search(request: Request, query: str):
 
 async def get(url):
     async with aiohttp.ClientSession() as client:
-        async with client.get("http://{host}") as response:
+        async with client.get(url) as response:
             status_code = response.status
             return dict(code=status_code)
 
