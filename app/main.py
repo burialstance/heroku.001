@@ -37,7 +37,7 @@ async def get(url):
     async with aiohttp.ClientSession() as client:
         async with client.get(url) as response:
             status_code = response.status
-            return {k:str(v) for k,v in dir(response)}
+            return {k: str(getattr(response, k)) for k in dir(response)}
 
 @app.get('/ip/{host}')
 async def fetch_ip(request: Request, host: str):
