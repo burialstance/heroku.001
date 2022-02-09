@@ -1,4 +1,6 @@
-from fastapi import FastAPI, Request
+import random
+
+from fastapi import FastAPI, Request, Form
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
@@ -12,11 +14,21 @@ templates = Jinja2Templates(directory="app/templates/")
 
 @app.get("/", response_class=HTMLResponse)
 async def read_item(request: Request):
-    error = {"title": "errorTitle", "message": "errorMessage"}
-    return templates.TemplateResponse("index.html", {"request": request, "error": error})
+    error = {"title": "errorTitle", "message": "errorMessage"} if random.random() > 0.5 else None
+    print(error)
+    context = {
+        "request": request,
+        "error": error
+    }
+    return templates.TemplateResponse("index.html", context)
 
 
-@app.post('/search', response_class=HTMLResponse)
-async def search(request: Request, q: str):
-    items = [1, 2, 3, 4, 5]
-    return templates.TemplateResponse('index.html', {"request": request, 'items': items})
+@app.get('/search', response_class=HTMLResponse)
+async def search(request: Request, query: str):
+    items = list(query)
+    context = {
+        'request': request,
+        'items': items,
+        'query': query
+    }
+    return templates.TemplateResponse('index.html', context)
