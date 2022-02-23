@@ -19,7 +19,7 @@ async def read_item(request: Request):
     print(error)
     context = {
         "request": request,
-        "error": error
+        "error": error,
         "data": await get_data()
     }
     return templates.TemplateResponse("index.html", context)
