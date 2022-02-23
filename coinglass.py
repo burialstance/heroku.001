@@ -1,6 +1,8 @@
 import asyncio
 import aiohttp
+from fastapi import APIRouter
 
+router = APIRouter()
 
 async def fetch_data(client, period: str = "5m"):
     url = f"https://fapi.binance.com/futures/data/topLongShortPositionRatio?symbol=BTCUSDT&period={period}"
@@ -8,8 +10,15 @@ async def fetch_data(client, period: str = "5m"):
         return await resp.json()
 
 
-async def iter_data(period: str = "5m"):
+async def get_data(period: str = "5m"):
     async with aiohttp.ClientSession() as client:
-        while True:
-            yield await fetch_data(client, period=period)
-            asyncio.sleep(1)
+        return await fetch_data(client, period=period)
+           
+
+async def iter_data():
+    while True:
+        yield await get_data()
+
+
+
+
