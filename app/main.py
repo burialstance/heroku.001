@@ -1,5 +1,6 @@
 import random
 import aiohttp
+Import asyncio
 from fastapi import FastAPI, Request, Form, WebSocket
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
@@ -55,6 +56,7 @@ async def fetch_ip(request: Request, host: str):
 async def websocket_endpoint(websocket: WebSocket):
     await websocket.accept()
     while True:
-        asyncio.sleep(1)
         data = await get_data()
+        asyncio.sleep(1)
         await websocket.send_json({"data": data})
+        print(data)
