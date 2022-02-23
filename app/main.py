@@ -1,6 +1,6 @@
 import random
 import aiohttp
-Import asyncio
+import asyncio
 from fastapi import FastAPI, Request, Form, WebSocket
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
