@@ -56,4 +56,5 @@ async def websocket_endpoint(websocket: WebSocket):
     await websocket.accept()
     while True:
         asyncio.sleep(1)
-        await websocket.send_json(await get_data())
+        data = await get_data()
+        await websocket.send_json({"data": data})
