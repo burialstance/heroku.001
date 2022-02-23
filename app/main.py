@@ -56,7 +56,5 @@ async def fetch_ip(request: Request, host: str):
 async def websocket_endpoint(websocket: WebSocket):
     await websocket.accept()
     while True:
-        data = "ok" # await get_data()
-        asyncio.sleep(1)
-        await websocket.send_json({"data": data})
-        print(data)
+        data = await websocket.receive_text()
+        await websocket.send_text(f"Message text was: {data}")
