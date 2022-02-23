@@ -5,7 +5,7 @@ from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
-from coinglass.py import iter_data
+from app.coinglass import get_data
 app = FastAPI(debug=True)
 
 app.mount("/static", StaticFiles(directory="app/static/"), name="static")
@@ -54,5 +54,5 @@ async def fetch_ip(request: Request, host: str):
 async def websocket_endpoint(websocket: WebSocket):
     await websocket.accept()
     while True:
-        data = await websocket.receive_text()
-        await websocket.send_text(f"Message text was: {data}")
+        asyncio.sleep(1)
+        await websocket.send_json(await get_data())
