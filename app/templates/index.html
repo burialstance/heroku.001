@@ -18,8 +18,8 @@
     </nav>
 
     {% if error %}
-        {% include "error.html" %}
-    {% endif%}
+        {{ include "error.html" }}
+    {% endif %}
 
     {% if items %}
     <ul class="list-group list-group-flush center-block">
