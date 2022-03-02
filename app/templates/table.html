@@ -2,16 +2,17 @@
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
+      <th scope="col">Long</th>
+      <th scope="col">Short</th>
+ 
     </tr>
   </thead>
   <tbody>
     {% for host in hosts %}
       <tr>
         <td>{{ host }}</td>
-        <td>{{ host["ip"] }}</td>
+        <td>{{ host["longAccount"] }}</td>
+        <td>{{ host["shortAccount"] }}</td>
 
       </tr>
     {% endfor %}
