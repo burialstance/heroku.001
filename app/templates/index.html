@@ -18,9 +18,7 @@
     </nav>
 
     {% if error %}
-        <div class="alert alert-danger" role="alert">
-          {{ error['message'] }}
-        </div>
+        {% include "error.html" %}
     {% endif%}
 
     {% if items %}
