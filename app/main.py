@@ -16,7 +16,7 @@ templates = Jinja2Templates(directory="app/templates/")
 
 @app.get("/", response_class=HTMLResponse)
 async def read_item(request: Request):
-   error = None
+    error = None
     context = {
         "request": request,
         "error": error,
