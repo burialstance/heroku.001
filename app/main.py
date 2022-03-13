@@ -16,8 +16,7 @@ templates = Jinja2Templates(directory="app/templates/")
 
 @app.get("/", response_class=HTMLResponse)
 async def read_item(request: Request):
-    error = {"title": "errorTitle", "message": "errorMessage"} if random.random() > 0.5 else None
-    print(error)
+   error = None
     context = {
         "request": request,
         "error": error,
