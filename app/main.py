@@ -17,7 +17,7 @@ templates = Jinja2Templates(directory="app/templates/")
 @app.get("/", response_class=HTMLResponse)
 async def read_item(request: Request, coin: str = "btc"):
     error = None
-    items = await get_data(coin=coin)
+    items = (await get_data(coin=coin))[::-1]
     coins = {
         "current": coin,
         "all": [
@@ -30,9 +30,9 @@ async def read_item(request: Request, coin: str = "btc"):
         "coins": coins,
         "request": request,
         "error": error,
-        "items": items[::-1],
-        "long": round(items[-1].longAccount * 100, 3),
-        "short": round(items[-1].shortAccount  * 100, 3),
+        "items": items,
+        "long": round(items[0].longAccount * 100, 3),
+        "short": round(items[0].shortAccount  * 100, 3),
     }
     return templates.TemplateResponse("index.html", context)
 
