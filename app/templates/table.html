@@ -13,7 +13,7 @@
             <td>{{ item.timestamp.strftime("%H:%M") }}</td>
             <td>{{ item.symbol }}</td>
             <td> <div class="progress">
-  <div class="bar {{ 'bar-success' if item.longShortRatio > 1 else 'bar-danger'" style="width: {{ 1 - item.longShortRatio * 50 if item.longShortRatio > 1 else (1 + item.longShortRatio) * 50 }}%;"></div>
+  <div class={{ 'bar bar-success' if item.longShortRatio > 1 else 'bar bar-danger'" style={{ f"width: {1 - item.longShortRatio * 50) if item.longShortRatio > 1 else (1 + item.longShortRatio) * 50 }"}}%;"></div>
 </div>
 
         <tr>
