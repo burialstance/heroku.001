@@ -30,7 +30,7 @@
 <ul class="nav nav-tabs">
   {% for coin in coins["all"] %}
   <li class="nav-item">
-    <a class={{"nav-link active" if coin.lower() == coins["current"].lower() else "nav-link"}} aria-current="page" href={{"/?coin=" + coin}}>{{ coin.lower() == coins["current"].lower() }}</a>
+    <a class={{"nav-link active" if coin.lower() == coins["current"].lower() else "nav-link"}} aria-current="page" href={{"/?coin=" + coin}}>{{ "nav-link active" if coin.lower() == coins["current"].lower() else "nav-link" }}</a>
   </li>
   {% endfor %} 
 </ul>
