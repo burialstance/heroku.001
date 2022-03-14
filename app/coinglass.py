@@ -15,8 +15,8 @@ class CoinData(BaseModel):
 
     def ratio(self):
         x = 50
-        ratio_long = str(round(self.longShortRatio - 1, 3))
-        ratio_short = str(round(1 - self.longShortRatio, 3))
+        ratio_long = round(self.longShortRatio - 1, 3)
+        ratio_short = round(1 - self.longShortRatio, 3)
         return str(x * (ratio_long if self.longShortRatio > 1 else ratio_short))
 
     def status(self):
