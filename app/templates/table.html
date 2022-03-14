@@ -13,7 +13,7 @@
             <td>{{ item.timestamp.strftime("%H:%M") }}</td>
             <td>{{ item.symbol }}</td>
             <td> <div class="progress">
-  <div class={{"progress-bar bg-" + item.status() }} role="progressbar" style={{ "width:" + item.ratio() + "%;" }} aria-valuenow={{ item.ratio() }} aria-valuemin="0" aria-valuemax="100">{{ item.ratio() }}</div>
+  <div class={{"progress-bar bg-" + item.status() }} role="progressbar" style={{ "width:" + "20" + "%;" }} aria-valuenow={{ item.ratio() }} aria-valuemin="0" aria-valuemax="100">{{ item.longShortRatio }}</div>
 </div>
 
         <tr>
