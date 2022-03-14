@@ -12,7 +12,12 @@ class CoinData(BaseModel):
     longAccount: float
     shortAccount: float
     longShortRatio: float
-    
+    def ratio(self):
+        ratio_long = 1 - self.longShortRatio
+        ratio_short = 1 
+        return ratio_long if self.longShortRatio > 1 else ratio_short
+    def status(self):
+        return "success" if self.longShortRatio > 1 else "danger"
 
 router = APIRouter()
 
