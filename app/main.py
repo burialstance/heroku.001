@@ -17,10 +17,13 @@ templates = Jinja2Templates(directory="app/templates/")
 @app.get("/", response_class=HTMLResponse)
 async def read_item(request: Request):
     error = None
+    items = await get_data()
     context = {
         "request": request,
         "error": error,
-        "items": await get_data()
+        "items": items,
+        "long": items[-1]["longAccount"] * 100,
+        "short": items[-1]["shortAccount"] * 100,
     }
     return templates.TemplateResponse("index.html", context)
 
