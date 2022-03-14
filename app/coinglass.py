@@ -14,7 +14,7 @@ class CoinData(BaseModel):
     longShortRatio: float
 
     def ratio(self):
-        x = 1000
+        x = 10000
         ratio_long = self.longShortRatio - 1
         ratio_short = 1 - self.longShortRatio
         return str(round(x * (ratio_long if self.longShortRatio > 1 else ratio_short), 3))
