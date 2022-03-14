@@ -2,12 +2,13 @@ import asyncio
 import aiohttp
 from pydantic import BaseModel
 from fastapi import APIRouter
-from datetime import datetime
+
+from datetime import date, datetime, time, timedelta
 
 
 class CoinData(BaseModel):
     symbol: str
-    timestamp: Datetime
+    timestamp: datetime
     longAccount: float
     shortAccount: float
     longShortRatio: float
