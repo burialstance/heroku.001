@@ -28,9 +28,9 @@
     {% endif %}
 
 <ul class="nav nav-tabs">
-  {% for coin in coins %}
+  {% for coin in coins["all"] %}
   <li class="nav-item">
-    <a class="nav-link active" aria-current="page" href={{"/?coin=" + coin}}>{{ coin }}</a>
+    <a class={{ "nav-link " + "active" if coins["current"] == coin else ""}} aria-current="page" href={{"/?coin=" + coin}}>{{ coin }}</a>
   </li>
   {% endfor %}
 </ul>
@@ -42,6 +42,5 @@
     {% endif %}
     
     {% include("footer.html") %}
-{{ dir(request) }}
   </body>
 </html>
