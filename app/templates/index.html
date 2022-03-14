@@ -17,27 +17,30 @@
   <body>    
 
 <div class="page-header">
-  <h1>Longs short<small>Соотношение long short позиций</small></h1>
+  <h1>Longs short</h1>
+  <p class="lead">
+   Соотношение настроений 
+  </p>
 </div>
    
     {% if error %}
         {% include "error.html" %}
     {% endif %}
 
-<div class="tabbable"> <!-- Only required for left/right tabs -->
-  <ul class="nav nav-tabs">
-    <li class="active"><a href="/" data-toggle="tab">BTC</a></li>
-    <li><a href="#tab2" data-toggle="tab">ETH</a></li>
-  </ul>
-  <div class="tab-content">
-    <div class="tab-pane active" id="tab1">
-      <p>I'm in Section 1.</p>
-    </div>
-    <div class="tab-pane" id="tab2">
-      <p>Howdy, I'm in Section 2.</p>
-    </div>
-  </div>
-</div>
+<ul class="nav">
+  <li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="#">Active</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Link</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Link</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+  </li>
+</ul>
 
 
     {% include("longshort.html") %}
