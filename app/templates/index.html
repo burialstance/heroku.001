@@ -28,18 +28,11 @@
     {% endif %}
 
 <ul class="nav nav-tabs">
+  {% for coin in coins %}
   <li class="nav-item">
-    <a class="nav-link active" aria-current="page" href="#">BTC</a>
+    <a class="nav-link active" aria-current="page" href={{"/?coin=" + coin}}>{{ coin }}</a>
   </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">ETH</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Link</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-  </li>
+  {% endfor %}
 </ul>
 
     {% include("longshort.html") %}
