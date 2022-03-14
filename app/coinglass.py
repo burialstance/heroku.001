@@ -1,6 +1,10 @@
 import asyncio
 import aiohttp
+from pydantic import BaseModel
 from fastapi import APIRouter
+
+class CoinData(BaseModel):
+    pass
 
 router = APIRouter()
 
