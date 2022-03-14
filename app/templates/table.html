@@ -12,7 +12,10 @@
 
             <td>{{ item.timestamp.strftime("%H:%M") }}</td>
             <td>{{ item.symbol }}</td>
-            <td>{{ item.longShortRatio }}</td>
+            <td> <div class="progress">
+  <div class="bar {{ 'bar-success' if item.longShortRatio > 1 else 'bar-danger'" style="width: {{ item.longShortRatio * 10 }}%;"></div>
+</div>
+
         <tr>
      {% endfor %}
     </tbody>
