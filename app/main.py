@@ -15,7 +15,7 @@ templates = Jinja2Templates(directory="app/templates/")
 
 
 @app.get("/", response_class=HTMLResponse)
-async def read_item(request: Request):
+async def read_item(request: Request, coin: str = "btc"):
     error = None
     items = await get_data()
     context = {
