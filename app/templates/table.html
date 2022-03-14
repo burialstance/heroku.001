@@ -12,8 +12,8 @@
             <td>{{ item.timestamp.strftime("%H:%M") }}</td>
             <td>{{ item.symbol }}</td>
             <td> 
-<div class={{ "progress progress-" + item.status() }}>
-  <div class="bar" style={{ "width:" + item.ratio() + "%" }}></div>
+<div class="progress {{ "progress-" + item.status() }}">
+  <div class="bar" style="width: {{ item.ratio() }}%"></div>
 </div>
             </td>
 
