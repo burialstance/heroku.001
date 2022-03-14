@@ -24,12 +24,12 @@
 <div class="container">
 
     <div class="progress">
-        <div class="progress-bar bg-danger" role="progressbar" aria-valuenow={{items[-1].get("shortAccount")}} aria-valuemin="0" aria-valuemax="100"></div>
+        <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="{{  items[-1]["shortAccount"]  }}" aria-valuemin="0" aria-valuemax="100"></div>
     </div>
   
 
     <div class="progress">
-        <div class="progress-bar bg-success" role="progressbar" aria-valuenow="{{items[-1].get("shortAccount")}}" aria-valuemin="0" aria-valuemax="100"></div>
+        <div class="progress-bar bg-success" role="progressbar" aria-valuenow="{{ items[-1]["longAccount"]  }}" aria-valuemin="0" aria-valuemax="100"></div>
     </div>
 </div>
 
