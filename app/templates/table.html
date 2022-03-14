@@ -13,7 +13,7 @@
             <td>{{ item.timestamp.strftime("%H:%M") }}</td>
             <td>{{ item.symbol }}</td>
             <td> <div class="progress">
-  <div class={{ 'bar bar-' + item.status() }} style={{ "width:" + item.ratio() + "%;" }}>{{ item.ratio() }}</div>
+  <div class={{"bar bar-" + item.status() }} style={{ "width:" + item.ratio() + "%;" }}>{{ item.ratio() }}</div>
 </div>
 
         <tr>
