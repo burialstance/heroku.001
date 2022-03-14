@@ -12,10 +12,12 @@ class CoinData(BaseModel):
     longAccount: float
     shortAccount: float
     longShortRatio: float
+
     def ratio(self):
-        ratio_long = round(self.longShortRatio - 1, 3)
-        ratio_short = round(1 - self.longShortRatio, 3)
+        ratio_long = str(round(self.longShortRatio - 1, 3))
+        ratio_short = str(round(1 - self.longShortRatio, 3))
         return ratio_long if self.longShortRatio > 1 else ratio_short
+
     def status(self):
         return "success" if self.longShortRatio > 1 else "danger"
 
