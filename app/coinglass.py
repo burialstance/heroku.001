@@ -2,9 +2,16 @@ import asyncio
 import aiohttp
 from pydantic import BaseModel
 from fastapi import APIRouter
+from datetime import datetime
+
 
 class CoinData(BaseModel):
-    pass
+    symbol: str
+    timestamp: Datetime
+    longAccount: float
+    shortAccount: float
+    longShortRatio: float
+    
 
 router = APIRouter()
 
@@ -16,5 +23,5 @@ async def fetch_data(client, period: str = "5m"):
 
 async def get_data(period: str = "5m"):
     async with aiohttp.ClientSession() as client:
-        return await fetch_data(client, period=period)
+        return [CoinData(**i) for i in await fetch_data(client, period=period)]
            
