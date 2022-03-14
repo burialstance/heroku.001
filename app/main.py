@@ -17,10 +17,11 @@ templates = Jinja2Templates(directory="app/templates/")
 @app.get("/", response_class=HTMLResponse)
 async def read_item(request: Request, coin: str = "btc"):
     error = None
-    items = await get_data()
+    items = await get_data(coin=coin)
     coins = [
-        "btc",
-        "eth",
+        "BTC",
+        "ETH", 
+        "PEOPLE",
     ]
     context = {
         "coins": coins,
