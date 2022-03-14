@@ -73,7 +73,7 @@
     {% for item in items %}
         <tr>
 
-            <td>{% item.timestamp.strftime("%H:%M") %}</td>
+            <td>{{ item.timestamp.strftime("%H:%M") }}</td>
             <td>{{ item.symbol }}</td>
             <td>{{ item.longShortRatio }}</td>
         <tr>
