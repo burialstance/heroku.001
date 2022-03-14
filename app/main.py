@@ -22,8 +22,8 @@ async def read_item(request: Request):
         "request": request,
         "error": error,
         "items": items,
-        "long": float(items[-1]["longAccount"]) * 100,
-        "short": float(items[-1]["shortAccount"]) * 100,
+        "long": round(float(items[-1]["longAccount"]) * 100, 3),
+        "short": round(float(items[-1]["shortAccount"])  * 100, 3),
     }
     return templates.TemplateResponse("index.html", context)
 
