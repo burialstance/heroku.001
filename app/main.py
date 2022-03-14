@@ -18,11 +18,14 @@ templates = Jinja2Templates(directory="app/templates/")
 async def read_item(request: Request, coin: str = "btc"):
     error = None
     items = await get_data(coin=coin)
-    coins = [
-        "BTC",
-        "ETH", 
-        "PEOPLE",
-    ]
+    coins = {
+        "current": coin,
+        "all": [
+            "BTC",
+            "ETH", 
+            "PEOPLE",
+        ],
+    }
     context = {
         "coins": coins,
         "request": request,
