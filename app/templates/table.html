@@ -12,9 +12,11 @@
             <td>{{ item.timestamp.strftime("%H:%M") }}</td>
             <td>{{ item.symbol }}</td>
             <td> 
+
 <div class="progress">
-  <div class="bar" style="width: {{ item.ratio() }}%">{{item.status()}}</div>
+  <div class="progress-bar bg-{{item.status()}}" role="progressbar" style="width: {{item.ratio()}}%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
 </div>
+
             </td>
 
         <tr>
