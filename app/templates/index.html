@@ -24,12 +24,12 @@
 <div class="container">
 
     <div class="progress">
-        <div class="progress-bar bg-danger" role="progressbar" style="width: {{  items[-1]['shortAccount'] * 100 }}%" aria-valuenow="{{  items[-1]['shortAccount']  }}" aria-valuemin="0" aria-valuemax="100"> {{  items[-1]['shortAccount']  }} </div>
+        <div class="progress-bar bg-danger" role="progressbar" style="width: {{  items[-1]['shortAccount'] * 100 }}%" aria-valuenow="{{  items[-1]['shortAccount']  }}" aria-valuemin="0" aria-valuemax="100"> {{  items[-1]['shortAccount']  }} * 100 </div>
     </div>
   
 
     <div class="progress">
-        <div class="progress-bar bg-success" role="progressbar" style="width: {{ items[-1]['longAccount'] * 100 }}%" aria-valuenow="{{ items[-1]['longAccount']  }}" aria-valuemin="0" aria-valuemax="100"> {{ items[-1]['longAccount']  }} </div>
+        <div class="progress-bar bg-success" role="progressbar" style="width: {{ items[-1]['longAccount'] * 100 }}%" aria-valuenow="{{ items[-1]['longAccount']  }} * 100" aria-valuemin="0" aria-valuemax="100"> {{ items[-1]['longAccount']  }} * 100</div>
     </div>
 </div>
 
