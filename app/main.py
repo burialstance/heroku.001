@@ -21,7 +21,7 @@ async def read_item(request: Request, coin: str = "btc"):
     context = {
         "request": request,
         "error": error,
-        "items": items,
+        "items": items[::-1],
         "long": round(items[-1].longAccount * 100, 3),
         "short": round(items[-1].shortAccount  * 100, 3),
     }
