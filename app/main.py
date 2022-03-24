@@ -4,7 +4,7 @@ from tortoise.contrib.fastapi import register_tortoise
 from app.db import DATABASE_URL
 from app.models import UserDB
 from app.users import auth_backend, current_active_user, fastapi_users
-
+from app.routes import router as root_router
 app = FastAPI()
 
 app.include_router(
@@ -22,7 +22,7 @@ app.include_router(
     tags=["auth"],
 )
 app.include_router(fastapi_users.get_users_router(), prefix="/users", tags=["users"])
-
+app.include_router(root_router)
 
 @app.get("/authenticated-route")
 async def authenticated_route(user: UserDB = Depends(current_active_user)):
