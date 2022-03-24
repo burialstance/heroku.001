@@ -9,4 +9,4 @@ router = APIRouter()
 
 @router.get("/")
 async def web_index():
-    return templates.TemplateResponse("item.html", {"request": request})
+    return templates.TemplateResponse("index.html", {"request": request})
