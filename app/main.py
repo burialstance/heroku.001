@@ -1,14 +1,12 @@
 from fastapi import Depends, FastAPI
 from tortoise.contrib.fastapi import register_tortoise
 
+from fastapi import Depends, FastAPI
+from tortoise.contrib.fastapi import register_tortoise
+
 from app.db import DATABASE_URL
 from app.models import UserDB
-from app.users import (
-    auth_backend,
-    current_active_user,
-    fastapi_users,
-    google_oauth_client,
-)
+from app.users import auth_backend, current_active_user, fastapi_users
 
 app = FastAPI()
 
@@ -27,11 +25,6 @@ app.include_router(
     tags=["auth"],
 )
 app.include_router(fastapi_users.get_users_router(), prefix="/users", tags=["users"])
-app.include_router(
-    fastapi_users.get_oauth_router(google_oauth_client, auth_backend, "SECRET"),
-    prefix="/auth/google",
-    tags=["auth"],
-)
 
 
 @app.get("/authenticated-route")
