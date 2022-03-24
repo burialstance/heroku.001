@@ -1,4 +1,3 @@
-import os
 from typing import Optional
 
 from fastapi import Depends, Request
@@ -9,13 +8,11 @@ from fastapi_users.authentication import (
     JWTStrategy,
 )
 from fastapi_users.db import TortoiseUserDatabase
-from httpx_oauth.clients.google import GoogleOAuth2
 
 from app.db import get_user_db
 from app.models import User, UserCreate, UserDB, UserUpdate
 
 SECRET = "SECRET"
-
 
 
 class UserManager(BaseUserManager[UserCreate, UserDB]):
