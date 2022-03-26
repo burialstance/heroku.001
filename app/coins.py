@@ -5,27 +5,10 @@ from fastapi import APIRouter
 
 from datetime import date, datetime, time, timedelta
 
-async def aiohttp_session():
+def aiohttp_session():
     return aiohttp.ClientSession(
         
     )
-
-class CoinData(BaseModel):
-    symbol: str
-    timestamp: datetime
-    longAccount: float
-    shortAccount: float
-    longShortRatio: float
-
-    def ratio(self):
-        x = 1000
-        ratio_long = self.longShortRatio - 1
-        ratio_short = 1 - self.longShortRatio
-        return str(round(x * (ratio_long if self.longShortRatio > 1 else ratio_short), 3))
-
-    def status(self):
-        return "success" if self.longShortRatio > 1 else "danger"
-
 
 
 async def fetch_data(client: aiohttp.ClientSession, url: str, **kwargs):
@@ -38,5 +21,5 @@ async def fetch_data(client: aiohttp.ClientSession, url: str, **kwargs):
 
 
 async def get_data(url: str, **kwargs):
-    async with aiohttp.ClientSession() as client:
+    async with aiohttp_session() as client:
         return await fetch_data(client, url)
