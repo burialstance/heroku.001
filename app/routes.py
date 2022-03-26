@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends, HTTPException, Response, Request, status
 from fastapi.templating import Jinja2Templates
 
-from app.users import current_active_user
+# from app.users import current_active_user
 
 
 templates = Jinja2Templates(directory="templates")
