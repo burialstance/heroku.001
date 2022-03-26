@@ -27,14 +27,6 @@
         {% include "error.html" %}
     {% endif %}
 
-<ul class="nav nav-tabs">
-  {% for coin in coins["all"] %}
-  <li class="nav-item">
-    <a class="nav-link {{"active" if coin.lower() == coins["current"].lower() else ""}}" aria-current="page" href={{"/?coin=" + coin}}>{{ coin }}</a>
-  </li>
-  {% endfor %} 
-</ul>
-
     {% if items %}
        {% include("table.html") %}
     {% endif %}
