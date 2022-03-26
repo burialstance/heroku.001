@@ -22,7 +22,7 @@ app.include_router(
     tags=["auth"],
 )
 app.include_router(fastapi_users.get_users_router(), prefix="/users", tags=["users"])
-app.include_router(root_router, prefix="/")
+app.include_router(root_router)
 
 @app.get("/authenticated-route")
 async def authenticated_route(user: UserDB = Depends(current_active_user)):
