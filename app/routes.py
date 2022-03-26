@@ -6,7 +6,7 @@ from fastapi.responses import HTMLResponse
 # from app.users import current_active_user
 
 
-templates = Jinja2Templates(directory="templates")
+templates = Jinja2Templates(directory="app/templates")
 
 router = APIRouter()
 
