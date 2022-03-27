@@ -16,7 +16,7 @@ from app.coinglass import router as coinglass_router
 
 app = FastAPI()
 app.include_router(
-    coinglass_router, prefix="coinglass"
+    coinglass_router, prefix="/coinglass"
 )
 app.include_router(
     fastapi_users.get_auth_router(auth_backend), prefix="/auth/jwt", tags=["auth"]
