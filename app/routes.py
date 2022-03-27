@@ -22,5 +22,4 @@ async def web_index(request: Request):
         
     }
     
-    price
-    return templates.TemplateResponse("index.html", {"request": request, "data": data, "price_usd": coin_price_usd})
+    return templates.TemplateResponse("index.html", {"request": request, "data": data, **context})
