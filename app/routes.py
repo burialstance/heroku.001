@@ -13,4 +13,6 @@ router = APIRouter()
 @router.get("/", response_class=HTMLResponse)
 async def web_index(request: Request):
     data = await get_data()
+    status = data.get("status")
+    data = data.get("data")
     return templates.TemplateResponse("index.html", {"request": request, "data": data})
