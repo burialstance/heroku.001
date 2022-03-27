@@ -24,13 +24,13 @@ class CoinData(BaseModel):
 
 router = APIRouter()
 
-async def fetch_data(client, coin: str = "btc", period: str = "5m"):
-    url = f"https://fapi.binance.com/futures/data/topLongShortPositionRatio?symbol={coin.upper()}USDT&period={period}"
+async def fetch_data(client):
+    url = "https://data.messari.io/api/v1/assets/btc/metrics"
     async with client.get(url) as resp:
         return await resp.json()
 
 
-async def get_data(coin: str = "btc", period: str = "5m"):
+async def get_data():
     async with aiohttp.ClientSession() as client:
-        return [CoinData(**i) for i in await fetch_data(client, coin, period)]
+        return await fetch_data(client)
            
