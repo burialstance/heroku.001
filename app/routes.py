@@ -18,8 +18,7 @@ async def web_index(request: Request):
     context = {
         "price_usd": round(data["market_data"]["price_usd"], 2),
         "price_eth": data["market_data"]["price_eth"],
-        "percent_change_usd_last_1_hour": round(data["market_data"]["percent_change_usd_last_1_hour"], 3),
-        
+        "percent_change_usd_last_1_hour": round(data["market_data"]["percent_change_usd_last_1_hour"] * 100, 2),
     }
     
     return templates.TemplateResponse("index.html", {"request": request, "data": data, **context})
