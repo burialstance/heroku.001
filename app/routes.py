@@ -4,7 +4,7 @@ from fastapi.templating import Jinja2Templates
 from fastapi.responses import HTMLResponse
 
 # from app.users import current_active_user
-
+from app.coinglass import get_data
 
 templates = Jinja2Templates(directory="app/templates")
 
