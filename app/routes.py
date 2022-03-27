@@ -16,9 +16,9 @@ async def web_index(request: Request):
     status = data.get("status")
     data = data.get("data")
     context = {
-        "price_usd": data["market_data"]["price_usd"],
+        "price_usd": round(data["market_data"]["price_usd"], 2),
         "price_eth": data["market_data"]["price_eth"],
-        "percent_change_usd_last_1_hour": data["market_data"]["percent_change_usd_last_1_hour"],
+        "percent_change_usd_last_1_hour": round(data["market_data"]["percent_change_usd_last_1_hour"], 3),
         
     }
     
