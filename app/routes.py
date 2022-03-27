@@ -15,4 +15,12 @@ async def web_index(request: Request):
     data = await get_data()
     status = data.get("status")
     data = data.get("data")
-    return templates.TemplateResponse("index.html", {"request": request, "data": data})
+    context = {
+        "price_usd": data["market_data"]["price_usd"],
+        "price_eth": data["market_data"]["price_eth"],
+        "percent_change_usd_last_1_hour": data["market_data"]["percent_change_usd_last_1_hour"],
+        
+    }
+    
+    price
+    return templates.TemplateResponse("index.html", {"request": request, "data": data, "price_usd": coin_price_usd})
