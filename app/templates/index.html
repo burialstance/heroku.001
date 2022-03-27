@@ -30,6 +30,10 @@
     {% if items %}
        {% include("table.html") %}
     {% endif %}
+
+    {% if data %}
+       {{data}}
+    {% endif %}
     
     {% include("footer.html") %}
   </body>
