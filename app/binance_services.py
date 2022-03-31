@@ -5,9 +5,9 @@ from binance import AsyncClient, DepthCacheManager, BinanceSocketManager
 
 
 async def get_binance_data(symbol="BTCUSDT"):
-    # client = await AsyncClient.create()
+    client = await AsyncClient.create()
 
-    data = "json.dumps(await client.get_symbol_ticker(symbol=symbol), indent=2)"
+    data = await client.get_symbol_ticker(symbol=symbol)
     return data
 
 async def main():
