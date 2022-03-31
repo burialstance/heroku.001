@@ -16,3 +16,4 @@ aiohttp==3.8.1
 fastapi
 fastapi-users[tortoise-orm,oauth]
 uvicorn[standard]
+python-binance
