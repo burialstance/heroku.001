@@ -3,6 +3,13 @@ import json
 
 from binance import AsyncClient, DepthCacheManager, BinanceSocketManager
 
+
+async def get_binance_data(symbol="BTCUSDT"):
+    client = await AsyncClient.create()
+
+    data = json.dumps(await client.get_symbol_ticker(symbol=symbol), indent=2)
+    return data
+
 async def main():
 
     # initialise the client
