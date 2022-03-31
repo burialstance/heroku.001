@@ -11,7 +11,7 @@ templates = Jinja2Templates(directory="app/templates")
 router = APIRouter()
 
 @router.get("/", response_class=HTMLResponse)
-async def web_index(symbol="BTCUSDT", request: Request):
+async def web_index(request: Request, symbol="BTCUSDT"):
     data = await get_data()
     b_data = await get_binance_data(symbol=symbol)
     status = data.get("status")
