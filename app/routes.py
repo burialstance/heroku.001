@@ -45,7 +45,7 @@ class ConnectionManager:
 
 manager = ConnectionManager()
 
-@app.websocket("/ws")
+@router.websocket("/ws")
 async def websocket_endpoint(websocket: WebSocket, client_id: int):
     await manager.connect(websocket)
     try:
