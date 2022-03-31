@@ -35,6 +35,15 @@
        {{ data }}
     {% endif %}
     
+    <script>
+    $(document).ready(function(){
+        console.log("WELCOME");
+        var socket = io('ws://127.0.0.1:8000', {
+        path: '/ws/socket.io',        
+    });
+    }
+    </script>
+
     {% include("footer.html") %}
   </body>
 </html>
