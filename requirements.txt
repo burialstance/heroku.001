@@ -17,3 +17,4 @@ fastapi
 fastapi-users[tortoise-orm,oauth]
 uvicorn[standard]
 python-binance
+fastapi_socketio
