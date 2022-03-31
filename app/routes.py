@@ -24,6 +24,11 @@ async def web_index(request: Request):
     return templates.TemplateResponse("index.html", {"request": request, "data": data, **context})
 
 
+@router.get("/binance", response_class=HTMLResponse)
+async def binance_dasboard(request: Request):
+    data = {}
+    return templates.TemplateResponse("binance.html", {"request": request })
+
 class ConnectionManager:
     def __init__(self):
         self.active_connections: List[WebSocket] = []
