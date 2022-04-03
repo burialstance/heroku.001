@@ -1,15 +1,15 @@
-var ws = new WebSocket("ws://localhost:8000/sendVote");
+var ws = new WebSocket("ws://localhost:8000/ws/data");
 pollingChart;
 
-function setUpChart(dataVotes) {
-var ctx_live = document.getElementById("mycanvas");
+function setUpChart(data) {
+ var ctx_live = document.getElementById("lineChart");
          var myChart = new Chart(ctx_live, {
          type: 'bar',
            data: {
              labels: ['Pizza', 'Burger'],
              datasets: [{
                label: 'Pizza Vs Burger',
-               data: dataVotes,
+               data: [0,1],
                fill: false,
                backgroundColor: ['#00eefa','#37dbff'],
                borderColor: '#000',
