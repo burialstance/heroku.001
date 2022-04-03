@@ -62,10 +62,6 @@
     <script>
     $(document).ready(function(){
         console.log("WELCOME");
-        var socket = io('ws://127.0.0.1:8000', {
-        path: '/ws/socket.io',        
-    });
-      $(document).ready(function){
         var ctxL = document.getElementById("lineChart").getContext('2d');
         var myLineChart = new Chart(ctxL, {
           type: 'line',
@@ -101,6 +97,11 @@
         });
       };
     }
+      
+        var socket = io('ws://127.0.0.1:8000', {
+        path: '/ws/socket.io',        
+    });
+        
     </script>
 
     {% include("footer.html") %}
