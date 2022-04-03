@@ -37,23 +37,23 @@
     {{ b_data }}
     
     {% if data %}
-    <table class="table table-dark">
-  <thead>
-    <tr>
-      <th scope="col">Key</th>
-      <th scope="col">Value</th>
-    </tr>
-  </thead>
-  <tbody>
-    {% for key in data.keys() %}
-      <tr>
-        <th scope="row">#</th>
-        <td>{{ key }}</td>
-        <td>{{ data[key] }}</td>
-      </tr>
-    {% endfor %}
-  </tbody>
-</table>
+      <table class="table table-dark">
+        <thead>
+          <tr>
+            <th scope="col">Key</th>
+            <th scope="col">Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for key in data.keys() %}
+            <tr>
+              <th scope="row">#</th>
+              <td>{{ key }}</td>
+              <td>{{ data[key] }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
     {% endif %}
 
 
