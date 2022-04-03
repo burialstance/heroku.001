@@ -31,14 +31,12 @@
        {% include("table.html") %}
     {% endif %}
 
-    {% if data %}
-       {{ data }}
-    {% endif %}
+    
     
     <h3> Binance </h3>
     {{ b_data }}
     
-
+    {% if data %}
     <table class="table table-dark">
   <thead>
     <tr>
@@ -52,11 +50,11 @@
         <th scope="row">#</th>
         <td>{{ key }}</td>
         <td>{{ data[key] }}</td>
-
       </tr>
     {% endfor %}
   </tbody>
 </table>
+    {% endif %}
 
 
 
