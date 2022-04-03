@@ -52,6 +52,20 @@ class ConnectionManager:
 
 manager = ConnectionManager()
 
+@router.websocket("/ws/data")
+async def user_vote(websocket: WebSocket):
+    """
+    This is a websocket method, which responds to the call /sendVote.
+    Client will use this websocket api as a medium to send their votes.
+    """
+    await websocket.accept()
+    try:
+        while True:
+            data = await get_data()
+            await websocket.send_json(data)
+    except Exception as ex:
+        return ex
+
 @router.websocket("/ws")
 async def websocket_endpoint(websocket: WebSocket, client_id: int):
     await manager.connect(websocket)
