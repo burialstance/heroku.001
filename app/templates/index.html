@@ -47,10 +47,12 @@
     </tr>
   </thead>
   <tbody>
-    {% for key, value in data.dict() %}
+    {% for key in data.keys() %}
       <tr>
-        <th scope="row">{{key}}</th>
-        <td>{{ value }}</td>
+        <th scope="row">#</th>
+        <td>{{ key }}</td>
+        <td>{{ data[key] }}</td>
+
       </tr>
     {% endfor %}
   </tbody>
