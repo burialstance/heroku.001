@@ -22,67 +22,6 @@
 
         </ul>
         <script>
-            const socket = io("http://127.0.0.1:8000", { 
-                path: "/ws",
-                reconnectionAttempts: 5,
-                timeout: 50000000
-
-
-            });
-            socket.on("connect", () => {
-                socket.emit("test", "sdssdsdd", (result) => {
-                    console.log(result);
-                });
-            });
-            socket.on("details", (args) => {
-                //console.log("sds");
-
-            });
-            function downloadBlob(blob, name = 'file.txt') {
-                // Convert your blob into a Blob URL (a special url that points to an object in the browser's memory)
-                const blobUrl = URL.createObjectURL(blob);
-
-                // Create a link element
-                const link = document.createElement("a");
-
-                // Set link's href to point to the Blob URL
-                link.href = blobUrl;
-                link.download = name;
-
-                // Append link to the body
-                document.body.appendChild(link);
-
-                // Dispatch click event on the link
-                // This is necessary as link.click() does not work on the latest firefox
-                link.dispatchEvent(
-                    new MouseEvent('click', { 
-                    bubbles: true, 
-                    cancelable: true, 
-                    view: window 
-                    })
-                );
-
-                // Remove link from body
-                document.body.removeChild(link);
-            }
-            function foo() {
-                fetch(
-                        'http://127.0.0.1:8000/test?q=no',
-                        {
-                            method: 'POST'
-                        })
-                .then(response => { 
-                    if (!response.ok) { throw new Error('Network response was not ok');}
-                    return response.blob() 
-                })
-                .then(blob => {
-                    downloadBlob(blob, "test.txt")
-                })
-                .catch(err => { 
-                    console.log('There has been a problem with your fetch operation:', err);
-                });
-            }
-
             var ws_connection = new WebSocket("ws://localhost:8000/ws");
             ws_connection.onmessage = function(event) {
                 var header = document.getElementById('header')
