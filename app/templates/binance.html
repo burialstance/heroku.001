@@ -12,15 +12,15 @@
             <button>Send</button>
         </form>
         <input type="submit" value="submit" onclick="return foo();" />
-        <ul id='messages'>
-
+        <ul id='messages'></ul>
+  
 <div class="line-chart">
   <div class="aspect-ratio">
     <canvas id="chart"></canvas>
   </div>
 </div>
 
-        </ul>
+        
         <script>
             var ws_connection = new WebSocket("ws://localhost:8000/ws");
             ws_connection.onmessage = function(event) {
