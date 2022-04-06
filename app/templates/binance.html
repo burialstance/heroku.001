@@ -16,17 +16,7 @@
         </ul>
         <script>
             const socket = io("http://127.0.0.1:8000", { 
-                path: "/ws/rk_state",
-                transportOptions: {
-                    polling: {
-                        extraHeaders: {
-                            'X-Username': 'Myy Token'
-                        }
-                    }
-                },
-                auth : {
-                    token: 1212
-                },
+                path: "/ws",
                 reconnectionAttempts: 5,
                 timeout: 50000000
 
@@ -86,11 +76,11 @@
                 });
             }
 
-            // var ws_connection = new WebSocket("ws://localhost:8000/ws");
-            // ws_connection.onmessage = function(event) {
-            //     var header = document.getElementById('header')
-            //     header.innerText = event.data;
-            // };
+            var ws_connection = new WebSocket("ws://localhost:8000/ws");
+            ws_connection.onmessage = function(event) {
+                var header = document.getElementById('header')
+                header.innerText = event.data;
+            };
             // ws_connection.onopen = function(event) {
             //     let header = document.getElementById('main')
             //     var data1;
