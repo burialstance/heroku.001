@@ -19,3 +19,4 @@ uvicorn[standard]
 python-binance
 fastapi_socketio
 yfinance
+vk-api
