@@ -14,6 +14,9 @@ class Settings(BaseSettings):
 
     CENSYS_ID: str
     CENSYS_SECRET: str
+
+    VK_LOGIN: str = ""
+    VK_PASSWWORD: str = ""
     
 
     class Config:
