@@ -5,7 +5,7 @@ from app.db import DATABASE_URL
 from app.models import UserDB
 from app.users import auth_backend, current_active_user, fastapi_users
 from app.routes import router as root_router
-app = FastAPI(docs_url="")
+app = FastAPI(docs_url="/")
 
 app.include_router(
     fastapi_users.get_auth_router(auth_backend), prefix="/auth/jwt", tags=["auth"]
